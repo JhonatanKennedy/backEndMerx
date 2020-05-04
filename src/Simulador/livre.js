@@ -1,4 +1,3 @@
-const tarifas = require('./tarifas')
 
 const {demanda,demandaUlt,consumoPonta,consumoPontaFora,usaGerador,consumoGerador,custoGeracaoDisel,distribuidora,grupoTarifa,icms,pis,cofin,fonte} = 0
 
