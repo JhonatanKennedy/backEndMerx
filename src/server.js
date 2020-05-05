@@ -12,7 +12,7 @@ mongoose.connect(
     {useNewUrlParser: true}
 )   
 
-app.use(cors({origin:"https://merxtest.herokuapp.com/"}))
+app.use(cors())
 app.use(express.json())
 app.use(routes)
 app.listen(process.env.PORT || 3333)
