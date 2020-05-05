@@ -7,7 +7,7 @@ const app = express()
 
 
 mongoose.connect(
-    "mongodb+srv://Jhonatan:<password>@cluster0-sjcra.mongodb.net/test?retryWrites=true&w=majority",
+    "mongodb+srv://Jhonatan:j300001@cluster0-sjcra.mongodb.net/test?retryWrites=true&w=majority",
     {useNewUrlParser: true}
 )   
 
