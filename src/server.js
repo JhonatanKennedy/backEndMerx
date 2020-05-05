@@ -7,11 +7,11 @@ const app = express()
 
 
 mongoose.connect(
-    "mongodb+srv://Jhonatan:j300001@cluster0-sjcra.mongodb.net/test?retryWrites=true&w=majority",
+    process.env.MONGO_URL,
     {useNewUrlParser: true}
 )   
 
-app.use(cors({origin:'https://merxtest.herokuapp.com/'}))
+app.use(cors())
 app.use(express.json())
 app.use(routes)
-app.listen(3333)
+app.listen(process.env.PORT || 3333)
