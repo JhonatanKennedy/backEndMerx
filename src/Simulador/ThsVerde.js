@@ -1,9 +1,9 @@
 var tabela = require('./tabelaEnergia')
 
-exports.TableVerde = function (result,TCP_TUSD,TCFP_TUSD,TCP_E,TCFP_E,TDMP,TDMFP,ICMS,COFINS,PIS) {
+exports.TableVerde = function (input,TCP_TUSD,TCFP_TUSD,TCP_E,TCFP_E,TDMP,TDMFP,ICMS,COFINS,PIS) {
 
-  var {cliente,cnpj,distribuidora,ths,grupoTarifa,demanda,demandaFpu,consumoP,consumoPf,demandaP,demandaPu,usaGerador,consumoGerador,geradorACL,
-    custoGeracaoDisel,calc,desconto,icms,pis,cofin} = result 
+  var {cliente,cnpj,distribuidora,ths,grupoTarifa,demanda,demandaFpu,consumoP,consumoPf,usaGerador,consumoGerador,geradorACL,
+    custoGeracaoDisel,desconto,icms,pis,cofin} = input 
 
     var formatter = new Intl.NumberFormat('pt-BR',{     //transforma em real
       style:'currency',

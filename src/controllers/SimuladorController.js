@@ -1,4 +1,5 @@
 const ThsVerde = require("../Simulador/ThsVerde");
+const ThsAzul = require("../Simulador/ThsAzul")
 var mongoose = require("mongoose");
 require("../models/Tarifa");
 var Tarifa = mongoose.model("Tarifa");
@@ -23,7 +24,9 @@ exports.Simulation = async (request, response) => {
     const data = { input, ResultCativo,ResultLivre };
     return response.json(data);
   }else{
-    
+    const {ResultCativo,ResultLivre} = ThsAzul.TableAzul(input,TCP_TUSD,TCFP_TUSD,TCP_E,TCFP_E,TDMP,TDMFP,ICMS,COFINS,PIS);
+    const data = { input, ResultCativo,ResultLivre };
+    return response.json(data);
   }
 
 
