@@ -7,5 +7,5 @@ const Tarifa = mongoose.model("Tarifa");
 exports.CadTarifas = async (request, response) => {
   const { data } = tarifaXLSX;
   await Tarifa.collection.insertMany(data);
-  return response.send("chegou");
+  return response.json(data);
 };

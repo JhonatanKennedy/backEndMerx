@@ -7,7 +7,7 @@ const routes = express.Router()
 routes.post('/simulacao', simulador.Simulation)
 
 
-//adm
-routes.post('/elivelton',Tarifas.CadTarifas)
+//adm tem q mudar pra post depoiss
+routes.get('/elivelton',Tarifas.CadTarifas)
 
 module.exports = routes
