@@ -11,7 +11,7 @@ mongoose.connect(
     {useNewUrlParser: true}
 )   
 
-app.use(cors())
+app.use(cors({origin:'https://merxtest.herokuapp.com/'}))
 app.use(express.json())
 app.use(routes)
 app.listen(3333)
