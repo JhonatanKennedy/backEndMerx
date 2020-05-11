@@ -5,13 +5,7 @@ exports.TableVerde = function (input,TCP_TUSD,TCFP_TUSD,TCP_E,TCFP_E,TDMP,TDMFP,
   var {cliente,cnpj,distribuidora,ths,grupoTarifa,demanda,demandaFpu,consumoP,consumoPf,usaGerador,consumoGerador,geradorACL,
     custoGeracaoDisel,desconto,icms,pis,cofin} = input 
 
-    var formatter = new Intl.NumberFormat('pt-BR',{     //transforma em real
-      style:'currency',
-      currency:'BRL',
-      minimumFractionDigits:2,
-    })
-
-
+    
   var impostos = 1 - ICMS - COFINS - PIS
 
   var cativoDemandaUnica  = TDMFP / impostos
@@ -31,27 +25,11 @@ exports.TableVerde = function (input,TCP_TUSD,TCFP_TUSD,TCP_E,TCFP_E,TDMP,TDMFP,
   }else{
     totalGerador = consumoGerador * custoGeracaoDisel
   }
-
   var totalCativo = totalDemandaUnica + totalDemandaUltrapassagem + totalConsumoPonta + totalcativoConsumoPontaFora + totalGerador
 
 
-  cativoDemandaUnica = formatter.format(cativoDemandaUnica)
-  cativoDemandaUltrapassagem = formatter.format(cativoDemandaUltrapassagem)
-  cativoConsumoPonta = formatter.format(cativoConsumoPonta)
-  cativoConsumoPontaFora = formatter.format(cativoConsumoPontaFora) 
-  qtdGerador = formatter.format(qtdGerador)
-  
-  totalDemandaUnica = formatter.format(totalDemandaUnica)
-  totalDemandaUltrapassagem = formatter.format(totalDemandaUltrapassagem)
-  totalConsumoPonta = formatter.format(totalConsumoPonta)
-  totalcativoConsumoPontaFora = formatter.format(totalcativoConsumoPontaFora)
-  totalGerador = formatter.format(totalGerador)
-  
-
-
-
   var ResultCativo = {cativoDemandaUnica,cativoDemandaUltrapassagem,cativoConsumoPonta,cativoConsumoPontaFora,qtdGerador,
-                        totalDemandaUnica,totalDemandaUltrapassagem,totalConsumoPonta,totalcativoConsumoPontaFora,totalGerador
+                      totalDemandaUnica,totalDemandaUltrapassagem,totalConsumoPonta,totalcativoConsumoPontaFora,totalGerador
 }
     
   //livre
@@ -96,38 +74,10 @@ exports.TableVerde = function (input,TCP_TUSD,TCFP_TUSD,TCP_E,TCFP_E,TDMP,TDMFP,
   var totalEnergiaACL = (energiaACL * energiaACLTarifa)/1000
   var totalIcms = (livreIcms*energiaACL)/1000
 
-  livreDemandaUnica = formatter.format(livreDemandaUnica)
-  livreConsumoPonta = formatter.format(livreConsumoPonta)
-  livreConsumoPontaFora = formatter.format(livreConsumoPontaFora)
-  livreGerador = formatter.format(livreGerador)
-  energiaACL =  formatter.format(energiaACL)
-
   var totalLivre = totalLivreGerador + totalEnergiaACL + totalIcms
 
-  tarifaLivreDemandaUnica = formatter.format(tarifaLivreDemandaUnica)
-  tarifaLivreConsumoPonta = formatter.format(tarifaLivreConsumoPonta)
-  tarifaLivreConsumoForaPonta = formatter.format(tarifaLivreConsumoForaPonta)
-  custoGeracaoDisel = formatter.format(custoGeracaoDisel)
-  energiaACLTarifa = formatter.format(energiaACLTarifa)
-
-
-
-
   var economiaLivre = totalCativo - totalLivre
-  var economiaPorcentagem = (totalCativo-totalLivre)/totalCativo
-
-  totalCativo = formatter.format(totalCativo)
-  totalLivre = formatter.format(totalLivre)
-  economiaLivre = formatter.format(economiaLivre)
-  economiaPorcentagem = (economiaPorcentagem*100).toFixed(1) + "%"
-
-  totalLivreDemanda = formatter.format(totalLivreDemanda)
-  totalLivreConsumoPonta = formatter.format(totalLivreConsumoPonta)
-  totalLivreConsumoForaPonta = formatter.format(totalLivreConsumoForaPonta)
-  totalLivreGerador = formatter.format(totalLivreGerador)
-  totalEnergiaACL = formatter.format(totalEnergiaACL)
-  totalIcms = formatter.format(totalIcms)
-
+  var economiaPorcentagem = ((totalCativo-totalLivre)/totalCativo)*100
 
 var ResultLivre = {livreDemandaUnica,livreConsumoPonta,livreConsumoPontaFora,livreGerador,energiaACL,
                     tarifaLivreDemandaUnica,tarifaLivreConsumoPonta,tarifaLivreConsumoForaPonta,
@@ -138,11 +88,3 @@ var ResultLivre = {livreDemandaUnica,livreConsumoPonta,livreConsumoPontaFora,liv
 var data = {ResultCativo,ResultLivre}
   return data
 };
-
-/*
-a4[0] = tusd consumo de ponta
-a4[1] = tusd consumo de fora ponta
-a4[2] = tusd demanda 
-a4[3] = cativo de ponta
-a5[4] = tarifa de fora ponta
-*/
