@@ -31,6 +31,7 @@ exports.Simulation = async (request, response) => {
       transform.convert(ResultCativo)
       transform.convert(ResultLivre)
       const data = { input, ResultCativo,ResultLivre };
+      response.header("Access-Control-Allow-Origin", "*");
       return response.json(data);
     }
   
@@ -54,6 +55,7 @@ exports.Simulation = async (request, response) => {
       transform.convert(ResultLivre)
       transform.convert(ape)
       const data = { input,ResultCativo,ResultLivre,ape }
+      response.header("Access-Control-Allow-Origin", "*");
       return response.json(data);
     }else{
       //const {ResultCativo} = ThsAzul.TableAzul(input,TCP_TUSD,TCFP_TUSD,TCP_E,TCFP_E,TDMP,TDMFP,ICMS,COFINS,PIS);
