@@ -8,8 +8,7 @@ var Tarifa = mongoose.model("Tarifa");
 
 exports.Simulation = async (request, response) => {
   const input = request.body;
-  
-
+  console.log(input)
   if(input.calc === "ML"){
 
     var {TCP_TUSD,TCFP_TUSD,TCP_E,TCFP_E,TDMP,TDMFP,ICMS,COFINS,PIS} = await Tarifa.findOne({
@@ -24,11 +23,13 @@ exports.Simulation = async (request, response) => {
       transform.convert(ResultCativo)
       transform.convert(ResultLivre)
       const data = { input, ResultCativo,ResultLivre };
+      return response.json(data);
     }else{
       const {ResultCativo,ResultLivre} = ThsAzul.TableAzul(input,TCP_TUSD,TCFP_TUSD,TCP_E,TCFP_E,TDMP,TDMFP,ICMS,COFINS,PIS);
       transform.convert(ResultCativo)
       transform.convert(ResultLivre)
       const data = { input, ResultCativo,ResultLivre };
+      return response.json(data);
     }
   
   }else{
@@ -51,15 +52,15 @@ exports.Simulation = async (request, response) => {
       transform.convert(ResultLivre)
       transform.convert(ape)
       const data = { input,ResultCativo,ResultLivre,ape }
-      
+      return response.json(data);
     }else{
       //const {ResultCativo} = ThsAzul.TableAzul(input,TCP_TUSD,TCFP_TUSD,TCP_E,TCFP_E,TDMP,TDMFP,ICMS,COFINS,PIS);
     }
 
 
   }
-  return response.json(data);
 
   
+
   
 };

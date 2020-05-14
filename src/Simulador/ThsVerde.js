@@ -85,6 +85,7 @@ var ResultLivre = {livreDemandaUnica,livreConsumoPonta,livreConsumoPontaFora,liv
                     totalLivreConsumoForaPonta,totalLivreGerador,totalEnergiaACL,livreIcms,totalIcms,
                     totalCativo,totalLivre,economiaLivre,economiaPorcentagem
 }
+
 var data = {ResultCativo,ResultLivre}
   return data
 };

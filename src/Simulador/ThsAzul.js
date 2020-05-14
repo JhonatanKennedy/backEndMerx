@@ -87,12 +87,12 @@ exports.TableAzul = function(input,TCP_TUSD,TCFP_TUSD,TCP_E,TCFP_E,TDMP,TDMFP,IC
     var totalICMS = (livreIcms * energiaACL)/1000
     var totalLivre = totalLivreDemanda + totalLivreDemandaForaPonta + totalLivreConsumoPonta + totalLivreConsumoForaPonta +totalLivreGerador +totalEnergiaACL + totalICMS
     var economia = resultadoCativo - totalLivre
-    var economiaPorcetagem = (resultadoCativo-totalLivre)/resultadoCativo*100
+    var economiaPorcentagem = (resultadoCativo-totalLivre)/resultadoCativo*100
 
     var ResultLivre = {livreDemanda,livreDemandaForaPonta,livreConsumoPonta,livreGerador,livreConsumoForaPonta,
                           livreTarifaDemanda,livreTarifaDemandaForaPonta,livreTarifaConsumoPonta,livreTarifaConsumoForaPonta,
                           livreTarifaGerador,totalLivreDemanda,totalLivreDemandaForaPonta,totalLivreConsumoPonta,totalLivreConsumoForaPonta,
-                          totalLivreGerador,energiaACL,energiaACLTarifa,totalEnergiaACL,totalICMS,totalLivre,economia,economiaPorcetagem,livreIcms
+                          totalLivreGerador,energiaACL,energiaACLTarifa,totalEnergiaACL,totalICMS,totalLivre,economia,livreIcms,economiaPorcentagem
     }
 
     return {ResultCativo,ResultLivre}
