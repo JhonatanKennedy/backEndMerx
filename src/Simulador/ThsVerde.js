@@ -74,7 +74,7 @@ exports.TableVerde = function (input,TCP_TUSD,TCFP_TUSD,TCP_E,TCFP_E,TDMP,TDMFP,
   var totalEnergiaACL = (energiaACL * energiaACLTarifa)/1000
   var totalIcms = (livreIcms*energiaACL)/1000
 
-  var totalLivre = totalLivreGerador + totalEnergiaACL + totalIcms
+  var totalLivre = totalLivreDemanda + totalLivreConsumoPonta + totalLivreConsumoForaPonta + totalLivreGerador + totalEnergiaACL + totalIcms 
 
   var economiaLivre = totalCativo - totalLivre
   var economiaPorcentagem = ((totalCativo-totalLivre)/totalCativo)*100
